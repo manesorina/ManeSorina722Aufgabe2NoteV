@@ -156,33 +156,20 @@ public class Service {
         }
 
         for(Character ch:characterRepo.getAll()){
-            for(Product p:)
-        }
-    }
-
-
-
-
-    public List<Patient> patientsWithMedicationPrescribedFOrGiveDisease(String disease){
-        List<Medicine> medicineForGivenDisease=new ArrayList<>();
-        Set<Patient> targetedPatients=new HashSet<>();
-
-        for(Medicine medicine:medicineRepo.getAll()){
-            if(Objects.equals(medicine.getDisease(),disease)){
-                medicineForGivenDisease.add(medicine);
-            }
-        }
-
-        for(Patient patient:patientRepo.getAll()){
-            for(Medicine medicine:medicineForGivenDisease){
-                if(patient.getPrescribedMedicines().contains(medicine)){
-                    targetedPatients.add(patient);
+            for(Product p:productsFromGivenRegion){
+                if (ch.getBoughtProducts().contains(p)){
+                    targetedCh.add(ch);
                     break;
                 }
             }
         }
-        return new ArrayList<>(targetedPatients);
+        return new ArrayList<>(targetedCh);
     }
+
+
+
+
+
 
 
     public List<Medicine> sortMedicinesPrescribedForPatientByPriceAscending(int patientId){
