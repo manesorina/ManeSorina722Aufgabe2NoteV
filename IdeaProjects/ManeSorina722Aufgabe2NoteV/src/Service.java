@@ -96,7 +96,7 @@ public class Service {
         return productRepo.getAll();
     }
 
-    public void addProduct(String name, int price, String region){
+    public void addProduct(String name, double price, String region){
         Product product=new Product(name, price, region);
         productRepo.create(product);
     }
@@ -106,11 +106,11 @@ public class Service {
         if(name==null){
             return false;
         }
-        productRepo.deleteMedicine(name);
+        productRepo.deleteProduct(name);
         return true;
     }
 
-    public boolean updateProductPrice(String name,int newPrice){
+    public boolean updateProductPrice(String name,double newPrice){
         if(newPrice<=0){
             return false;
         }
@@ -172,14 +172,14 @@ public class Service {
 
 
 
-    public List<Medicine> sortMedicinesPrescribedForPatientByPriceAscending(int patientId){
-        Patient patient=patientRepo.read(patientId);
-        return patient.getPrescribedMedicines().stream().sorted(Comparator.comparing(Medicine::getPrice)).collect(Collectors.toList());
+    public List<Product> sortProductsBoughtByChByPriceAscending(int id){
+        Character ch=characterRepo.read(id);
+        return ch.getBoughtProducts().stream().sorted(Comparator.comparing(Product::getPrice)).collect(Collectors.toList());
     }
 
-    public List<Medicine> sortMedicinesPrescribedForPatientByPriceDescending(int patientId){
-        Patient patient=patientRepo.read(patientId);
-        return patient.getPrescribedMedicines().stream().sorted(Comparator.comparing(Medicine::getPrice).reversed()).toList();
+    public List<Product> sortProductsBoughtByChByPriceDescending(int id){
+        Character ch=characterRepo.read(id);
+        return ch.getBoughtProducts().stream().sorted(Comparator.comparing(Product::getPrice).reversed()).toList();
     }
 
 
@@ -187,3 +187,9 @@ public class Service {
 
 
 }
+
+
+
+
+
+

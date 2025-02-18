@@ -2,10 +2,10 @@
 public class Product {
 
     private String name;
-    private int price;
+    private double price;
     private String region;
 
-    public Product(String name, int price, String region) {
+    public Product(String name, double price, String region) {
         this.name = name;
         this.price = price;
         this.region = region;
@@ -19,11 +19,11 @@ public class Product {
         this.name = name;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
@@ -35,12 +35,4 @@ public class Product {
         this.region = region;
     }
 
-    @Override
-    public String toString() {
-        return "Product{" +
-                "name='" + name + '\'' +
-                ", price=" + price +
-                ", region='" + region + '\'' +
-                '}';
-    }
 }
