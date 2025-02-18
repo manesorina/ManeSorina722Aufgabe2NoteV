@@ -35,4 +35,12 @@ public class Product {
         this.region = region;
     }
 
+    @Override
+    public String toString() {
+        return "Product{" +
+                "name='" + name + '\'' +
+                ", price=" + price +
+                ", region='" + region + '\'' +
+                '}';
+    }
 }

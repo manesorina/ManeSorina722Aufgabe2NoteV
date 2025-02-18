@@ -77,7 +77,7 @@ public class Console {
 
 
     public void printAllP(){
-        (service.getAllProducts()).forEach(System.out::println);
+        service.getAllProducts().forEach(System.out::println);
     }
 
     public void addP(){

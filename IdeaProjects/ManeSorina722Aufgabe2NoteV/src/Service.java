@@ -58,12 +58,6 @@ public class Service {
             return false;
         }
 
-        for (Character p:characterRepo.getAll()) {
-            if (p.getBoughtProducts().contains(product)) {
-                System.out.println("Product already bought by  someone else");
-                return false;
-            }
-        }
         character.addProduct(product);
         characterRepo.update(characterId,character);
         return true;
@@ -83,7 +77,7 @@ public class Service {
         }
 
         if (!character.getBoughtProducts().contains(product)) {
-            System.out.println("Meidcation not bought by this character");
+            System.out.println("Product not bought by this character");
             return false;
         }
 
